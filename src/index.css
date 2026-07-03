@@ -1071,24 +1071,43 @@ p {
 
 @media (max-width: 600px) {
   .glass-nav {
-    padding: 12px 0;
+    padding: 12px 0 10px;
   }
   .nav-container {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    align-items: center;
   }
   .nav-logo {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 2px;
   }
   .nav-links {
-    gap: 16px;
+    display: inline-flex;
+    gap: 2px;
     justify-content: center;
-    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 4px;
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
+    width: auto;
+    max-width: 100%;
   }
   .nav-link {
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    padding: 4px 0;
+    font-size: 0.68rem;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-link::after {
+    display: none; /* Hide standard underline animation on mobile */
+  }
+  .nav-link.active {
+    background-color: hsl(var(--sage-accent));
+    color: #ffffff !important;
+    box-shadow: var(--shadow-sm);
   }
 }
 
