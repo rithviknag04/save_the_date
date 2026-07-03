@@ -31,7 +31,7 @@ export default function Engagement() {
 
       <section className="engagement-countdown-section" style={{ padding: '20px 0' }}>
         <div className="container" style={{ maxWidth: '600px' }}>
-          <div className="glass-panel text-center" style={{ padding: '32px' }}>
+          <div className="glass-panel text-center countdown-wrap-card">
             <span className="hero-eyebrow" style={{ display: 'block', marginBottom: '12px' }}>Countdown to the Engagement</span>
             <Countdown targetDate={engagementDateString} />
           </div>
@@ -42,7 +42,7 @@ export default function Engagement() {
         <div className="container">
           <div className="grid-2">
             {/* The Details */}
-            <div className="details-card glass-panel" style={{ padding: '40px' }}>
+            <div className="details-card glass-panel">
               <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                 <Calendar className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
                 <h2>Date & Time</h2>
@@ -66,7 +66,7 @@ export default function Engagement() {
             </div>
 
             {/* The Venue */}
-            <div className="details-card glass-panel" style={{ padding: '40px' }}>
+            <div className="details-card glass-panel">
               <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                 <MapPin className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
                 <h2>The Venue</h2>
@@ -81,8 +81,8 @@ export default function Engagement() {
                   href="https://maps.app.goo.gl/XT3cfnBiZa6WMh1r8" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="map-placeholder glass-card" 
-                  style={{ marginTop: '24px', padding: '20px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', textDecoration: 'none', cursor: 'pointer' }}
+                  className="map-placeholder glass-card map-link-card" 
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', textDecoration: 'none', cursor: 'pointer' }}
                 >
                   <MapPin size={24} className="map-pin-icon" style={{ color: 'var(--text-gold)' }} />
                   <p style={{ margin: '0', fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-accent)' }}>View Venue on Google Maps</p>

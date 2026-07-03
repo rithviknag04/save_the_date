@@ -983,7 +983,31 @@ p {
   text-align: center;
 }
 
+/* Details Card and Map Layout Custom Classes */
+.details-card {
+  padding: 40px;
+}
+
+.countdown-wrap-card {
+  padding: 32px;
+}
+
+.map-link-card {
+  margin-top: 24px;
+  padding: 20px;
+}
+
 /* Responsive Overrides */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-image-container {
+    order: -1; /* Place couple photo on top for a better reading flow on tablets */
+  }
+}
+
 @media (max-width: 900px) {
   .timeline-line {
     left: 20px;
@@ -1008,15 +1032,29 @@ p {
 }
 
 @media (max-width: 768px) {
-  .hero-container {
+  .grid-2 {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
+  }
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .details-card {
+    padding: 24px 20px;
+  }
+  .countdown-wrap-card {
+    padding: 24px 16px;
+  }
+  .map-link-card {
+    margin-top: 16px;
+    padding: 16px 12px;
   }
   .hero-card {
     padding: 32px 20px;
   }
   .hero-title {
-    font-size: 2.8rem;
+    font-size: 2.3rem; /* Slightly smaller to prevent text clipping on smaller screens */
   }
   .hero-actions {
     flex-direction: column;
@@ -1028,6 +1066,29 @@ p {
   .radio-group {
     flex-direction: column;
     gap: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .glass-nav {
+    padding: 12px 0;
+  }
+  .nav-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .nav-logo {
+    font-size: 1.5rem;
+  }
+  .nav-links {
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+  }
+  .nav-link {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 4px 0;
   }
 }
 

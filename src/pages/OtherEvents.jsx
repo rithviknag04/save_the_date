@@ -22,7 +22,7 @@ export default function OtherEvents() {
         <div className="container">
           <div className="grid-2">
             {/* Additional Events */}
-            <div className="details-card glass-panel" style={{ padding: '40px' }}>
+            <div className="details-card glass-panel">
               <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                 <Clock className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
                 <h2>Pre & Post Wedding Events</h2>
@@ -48,7 +48,7 @@ export default function OtherEvents() {
             </div>
 
             {/* Gift Registry / Notes */}
-            <div className="details-card glass-panel" style={{ padding: '40px' }}>
+            <div className="details-card glass-panel">
               <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                 <Gift className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
                 <h2>Registry & Blessings</h2>
@@ -71,7 +71,7 @@ export default function OtherEvents() {
         <div className="container">
           <div className="grid-2">
             {/* Accommodations */}
-            <div className="details-card glass-panel" style={{ padding: '40px' }}>
+            <div className="details-card glass-panel">
               <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                 <Hotel className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
                 <h2>Accommodations</h2>
@@ -91,7 +91,7 @@ export default function OtherEvents() {
             </div>
 
             {/* Dress Code */}
-            <div className="details-card glass-panel" style={{ padding: '40px' }}>
+            <div className="details-card glass-panel">
               <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                 <Shirt className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
                 <h2>Dress Code</h2>
