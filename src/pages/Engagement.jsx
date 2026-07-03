@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, Clock, Heart, ArrowLeft } from 'lucide-react';
+import { Calendar, MapPin, Clock, Heart, ArrowLeft, Shirt, Sparkles } from 'lucide-react';
 import Countdown from '../components/Countdown';
 
 export default function Engagement() {
@@ -88,6 +88,57 @@ export default function Engagement() {
                   <p style={{ margin: '0', fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-accent)' }}>View Venue on Google Maps</p>
                   <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Click to open driving directions</span>
                 </a>
+              </div>
+            </div>
+
+            {/* Dress Code */}
+            <div className="details-card glass-panel">
+              <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                <Shirt className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
+                <h2>Dress Code</h2>
+              </div>
+              <div className="venue-info">
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', marginBottom: '8px' }}>Festive Pastel Wear</h3>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '16px' }}>
+                  We would love for you to celebrate with us in elegant pastel traditional or semi-formal attire. Lightweight, breathable fabrics are recommended!
+                </p>
+                <p style={{ fontStyle: 'italic', fontSize: '0.85rem', color: 'var(--text-gold)', fontWeight: '600' }}>
+                  Color Ideas: Lavender, peach, soft mint green, powder blue, and champagne gold.
+                </p>
+              </div>
+            </div>
+
+            {/* Flow of the Event */}
+            <div className="details-card glass-panel">
+              <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                <Sparkles className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
+                <h2>Flow of the Event</h2>
+              </div>
+              <div className="schedule-list">
+                <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>04:30 PM</span>
+                  <div className="schedule-info">
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Guest Arrival & Welcoming</h4>
+                  </div>
+                </div>
+                <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>05:00 PM</span>
+                  <div className="schedule-info">
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Ring Ceremony & Exchange of Vows</h4>
+                  </div>
+                </div>
+                <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>06:00 PM</span>
+                  <div className="schedule-info">
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Cake Cutting & Stage Photography</h4>
+                  </div>
+                </div>
+                <div className="schedule-item" style={{ display: 'flex', gap: '16px' }}>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>07:00 PM</span>
+                  <div className="schedule-info">
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Buffet Dinner & Congratulations</h4>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

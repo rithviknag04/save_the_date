@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, Upload, X, Camera, RefreshCw, Trash2, ArrowLeft, Plus } from 'lucide-react';
+import { Heart, Upload, X, Camera, RefreshCw, Trash2, ArrowLeft, Plus, Download } from 'lucide-react';
 import coupleHero from '../assets/couple_hero.png';
 import galleryRing from '../assets/gallery_ring.png';
 import galleryVenue from '../assets/gallery_venue.png';
@@ -260,14 +260,26 @@ export default function Gallery() {
                       <div className="gallery-image-wrapper">
                         <img src={photo.src} alt={photo.title} className="gallery-image" />
                         
-                        {/* Delete moderation button */}
-                        <button 
-                          className="photo-delete-btn" 
-                          onClick={() => handleDeletePhoto(photo)}
-                          title="Delete photo permanently"
+                        {/* Download button */}
+                        <a 
+                          href={photo.src} 
+                          download={photo.title || 'wedding-photo'} 
+                          className="photo-download-btn"
+                          title="Download photo"
                         >
-                          <Trash2 size={16} />
-                        </button>
+                          <Download size={16} />
+                        </a>
+
+                        {/* Delete moderation button - only for guest uploads */}
+                        {photo.uploader !== 'Prajwala & Shravan' && (
+                          <button 
+                            className="photo-delete-btn" 
+                            onClick={() => handleDeletePhoto(photo)}
+                            title="Delete photo permanently"
+                          >
+                            <Trash2 size={16} />
+                          </button>
+                        )}
 
                         <div className="gallery-overlay">
                           <div className="gallery-overlay-content">

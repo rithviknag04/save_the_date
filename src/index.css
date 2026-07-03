@@ -1345,7 +1345,29 @@ p {
   opacity: 0; /* Hidden by default, shown on hover */
 }
 
-.gallery-item:hover .photo-delete-btn {
+.photo-download-btn {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+  opacity: 0; /* Hidden by default, shown on hover */
+}
+
+.gallery-item:hover .photo-delete-btn,
+.gallery-item:hover .photo-download-btn {
   opacity: 1;
 }
 
@@ -1356,9 +1378,17 @@ p {
   transform: scale(1.1);
 }
 
-/* Mobile accessibility for delete button */
+.photo-download-btn:hover {
+  background: hsl(var(--sage-accent));
+  color: #ffffff;
+  border-color: hsl(var(--sage-accent));
+  transform: scale(1.1);
+}
+
+/* Mobile accessibility for delete/download buttons */
 @media (max-width: 768px) {
-  .photo-delete-btn {
+  .photo-delete-btn,
+  .photo-download-btn {
     opacity: 0.95;
     background: rgba(0, 0, 0, 0.7);
   }

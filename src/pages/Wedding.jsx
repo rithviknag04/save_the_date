@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, Clock, Heart, ArrowLeft } from 'lucide-react';
+import { Calendar, MapPin, Clock, Heart, ArrowLeft, Shirt, Sparkles } from 'lucide-react';
 import Countdown from '../components/Countdown';
 
 export default function Wedding() {
@@ -84,6 +84,57 @@ export default function Wedding() {
                   <p style={{ margin: '0', fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-accent)' }}>View Venue on Google Maps</p>
                   <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Click to open driving directions</span>
                 </a>
+              </div>
+            </div>
+
+            {/* Dress Code */}
+            <div className="details-card glass-panel">
+              <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                <Shirt className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
+                <h2>Dress Code</h2>
+              </div>
+              <div className="venue-info">
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', marginBottom: '8px' }}>Vibrant Traditional Indian Wear</h3>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '16px' }}>
+                  We would love for you to celebrate with us in traditional Indian festive attire. Bright, joyful colors are highly encouraged to match the auspicious occasion!
+                </p>
+                <p style={{ fontStyle: 'italic', fontSize: '0.85rem', color: 'var(--text-gold)', fontWeight: '600' }}>
+                  Color Ideas: Deep maroon, mustard yellow, royal blue, emerald green, and classic cream.
+                </p>
+              </div>
+            </div>
+
+            {/* Flow of the Event */}
+            <div className="details-card glass-panel">
+              <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                <Sparkles className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
+                <h2>Flow of the Event</h2>
+              </div>
+              <div className="schedule-list">
+                <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>09:00 AM</span>
+                  <div className="schedule-info">
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Welcoming the Groom (Baraat)</h4>
+                  </div>
+                </div>
+                <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>10:00 AM</span>
+                  <div className="schedule-info">
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Ceremony & Muhurtham</h4>
+                  </div>
+                </div>
+                <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>12:30 PM</span>
+                  <div className="schedule-info">
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Traditional Feast (Elai Oon)</h4>
+                  </div>
+                </div>
+                <div className="schedule-item" style={{ display: 'flex', gap: '16px' }}>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>06:30 PM</span>
+                  <div className="schedule-info">
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Reception & Celebration</h4>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
