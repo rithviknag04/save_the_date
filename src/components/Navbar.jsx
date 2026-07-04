@@ -22,8 +22,8 @@ export default function Navbar() {
           <NavLink to="/gallery" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
             Gallery
           </NavLink>
-          <NavLink to="/other-events" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            Other Events
+          <NavLink to="/calendar" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+            Calendar
           </NavLink>
         </div>
       </div>

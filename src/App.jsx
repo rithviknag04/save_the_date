@@ -7,7 +7,9 @@ import Wedding from './pages/Wedding';
 import Engagement from './pages/Engagement';
 import Story from './pages/Story';
 import Gallery from './pages/Gallery';
-import OtherEvents from './pages/OtherEvents';
+import Calendar from './pages/Calendar';
+import Mehendi from './pages/Mehendi';
+import HaldiSangeet from './pages/HaldiSangeet';
 import './App.css';
 
 export default function App() {
@@ -21,7 +23,9 @@ export default function App() {
           <Route path="/engagement" element={<Engagement />} />
           <Route path="/story" element={<Story />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/other-events" element={<OtherEvents />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/mehendi" element={<Mehendi />} />
+          <Route path="/haldi-sangeet" element={<HaldiSangeet />} />
         </Routes>
       </main>
       <Footer />

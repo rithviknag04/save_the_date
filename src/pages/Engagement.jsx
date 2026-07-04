@@ -49,17 +49,17 @@ export default function Engagement() {
               </div>
               <div className="schedule-list">
                 <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '20px' }}>
-                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '80px' }}>4:30 PM</span>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '80px' }}>10:30 AM</span>
                   <div className="schedule-info">
                     <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: '600' }}>Ring Ceremony & Exchange of Vows</h4>
                     <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)' }}>The couple will exchange rings in the presence of family and friends.</p>
                   </div>
                 </div>
                 <div className="schedule-item" style={{ display: 'flex', gap: '16px' }}>
-                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '80px' }}>7:00 PM</span>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '80px' }}>12:00 PM</span>
                   <div className="schedule-info">
-                    <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: '600' }}>Dinner & Celebrations</h4>
-                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)' }}>Join us for an elegant evening of dinner, music, and joy.</p>
+                    <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: '600' }}>Lunch & Celebrations</h4>
+                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)' }}>Join us for an elegant Afternoon of Lunch, music, and joy.</p>
                   </div>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function Engagement() {
               </div>
               <div className="schedule-list">
                 <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
-                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>04:30 PM</span>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>10:30 AM</span>
                   <div className="schedule-info">
                     <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Guest Arrival & Welcoming</h4>
                   </div>

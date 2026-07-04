@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import { Calendar, MapPin, Clock, Heart, ArrowLeft, Shirt, Sparkles } from 'lucide-react';
 import Countdown from '../components/Countdown';
 
-export default function Wedding() {
+export default function HaldiSangeet() {
   return (
-    <div className="wedding-page animate-fade-in">
+    <div className="haldi-sangeet-page animate-fade-in">
       <section className="section page-header-section" style={{ paddingBottom: '20px' }}>
         <div className="container text-center">
-          <Link to="/" className="btn-secondary" style={{ marginBottom: '24px', display: 'inline-flex', padding: '8px 16px', letterSpacing: '1px', textTransform: 'none' }}>
+          <Link to="/calendar" className="btn-secondary" style={{ marginBottom: '24px', display: 'inline-flex', padding: '8px 16px', letterSpacing: '1px', textTransform: 'none' }}>
             <ArrowLeft size={16} style={{ marginRight: '8px' }} />
-            Back to Welcome
+            Back to Calendar
           </Link>
-          <h1 className="page-title" style={{ fontSize: '3rem', marginBottom: '8px' }}>The Wedding Celebration</h1>
+          <h1 className="page-title" style={{ fontSize: '3rem', marginBottom: '8px' }}>Haldi & Sangeet Ceremonies</h1>
           <p className="page-subtitle" style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Prajwala Nag & Shravan Kumar</p>
           <div className="botanical-divider">
             <div className="botanical-line"></div>
@@ -24,11 +24,11 @@ export default function Wedding() {
         </div>
       </section>
 
-      <section className="wedding-countdown-section" style={{ padding: '20px 0' }}>
+      <section className="haldi-countdown-section" style={{ padding: '20px 0' }}>
         <div className="container" style={{ maxWidth: '600px' }}>
           <div className="glass-panel text-center countdown-wrap-card">
-            <span className="hero-eyebrow" style={{ display: 'block', marginBottom: '12px' }}>Countdown to the Big Day</span>
-            <Countdown targetDate="2026-12-13T19:00:00" />
+            <span className="hero-eyebrow" style={{ display: 'block', marginBottom: '12px' }}>Countdown to Haldi & Sangeet</span>
+            <Countdown targetDate="2026-12-12T10:00:00" />
           </div>
         </div>
       </section>
@@ -36,7 +36,8 @@ export default function Wedding() {
       <section className="events-grid-section" style={{ padding: '40px 0 80px' }}>
         <div className="container">
           <div className="grid-2">
-            {/* The Details */}
+            
+            {/* Date & Time */}
             <div className="details-card glass-panel">
               <div className="details-card-header" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                 <Calendar className="details-header-icon" size={24} style={{ color: 'var(--text-gold)' }} />
@@ -44,31 +45,17 @@ export default function Wedding() {
               </div>
               <div className="schedule-list">
                 <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '20px' }}>
-                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '80px' }}>Dec 11</span>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '80px' }}>10:00 AM</span>
                   <div className="schedule-info">
-                    <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: '600' }}>Mehendi Ceremony</h4>
-                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)' }}>6:00 PM onwards — Henna, music, and celebrations.</p>
-                  </div>
-                </div>
-                <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '20px' }}>
-                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '80px' }}>Dec 12</span>
-                  <div className="schedule-info">
-                    <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: '600' }}>Haldi & Sangeet Night</h4>
-                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)' }}>10:00 AM (Haldi) & 6:00 PM (Sangeet dance performances).</p>
-                  </div>
-                </div>
-                <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '20px' }}>
-                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '80px' }}>Dec 13</span>
-                  <div className="schedule-info">
-                    <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: '600' }}>Wedding & Reception</h4>
-                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)' }}>Sacred Muhurtham rituals followed by reception dinner.</p>
+                    <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: '600' }}>Haldi Ceremony</h4>
+                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)' }}>A joyful turmeric paste-applying ritual with pure traditional vibes.</p>
                   </div>
                 </div>
                 <div className="schedule-item" style={{ display: 'flex', gap: '16px' }}>
-                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '80px' }}>Dec 14</span>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '80px' }}>06:00 PM</span>
                   <div className="schedule-info">
-                    <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: '600' }}>Blessings & Lunch</h4>
-                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)' }}>Gala lunch gathering to bless the newlywed couple.</p>
+                    <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: '600' }}>Sangeet Ceremony & Gala Dinner</h4>
+                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)' }}>Choreographed dance performances, music, and a celebratory feast.</p>
                   </div>
                 </div>
               </div>
@@ -81,14 +68,13 @@ export default function Wedding() {
                 <h2>The Venue</h2>
               </div>
               <div className="venue-info">
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.6rem', marginBottom: '8px' }}>Vinayaka Convention</h3>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.6rem', marginBottom: '8px' }}>Atmosphere</h3>
                 <p className="venue-address" style={{ fontWeight: '500', color: 'var(--text-accent)', marginBottom: '16px' }}>Mysuru, Karnataka, India</p>
-                <p className="venue-desc" style={{ color: 'var(--text-secondary)' }}>
-                  A magnificent and spacious convention hall perfect for hosting traditional Indian wedding celebrations.
-                  Ample parking space is available at the venue.
+                <p className="venue-desc" style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>
+                  Haldi will take place at the Sunlit Courtyard, and Sangeet is hosted inside the Grand Ballroom.
                 </p>
                 <a 
-                  href="https://maps.app.goo.gl/rbJAkSdWV3f6h6Sh8" 
+                  href="https://maps.app.goo.gl/mrCJF1aKULHWHMcS6?g_st=aw" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="map-placeholder glass-card map-link-card" 
@@ -108,12 +94,12 @@ export default function Wedding() {
                 <h2>Dress Code</h2>
               </div>
               <div className="venue-info">
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', marginBottom: '8px' }}>Vibrant Traditional Indian Wear</h3>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', marginBottom: '8px' }}>Vibrant / Indo-Western Festive</h3>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '16px' }}>
-                  We would love for you to celebrate with us in traditional Indian festive attire. Bright, joyful colors are highly encouraged to match the auspicious occasion!
+                  For the Haldi, yellow/mustard ethnic wear is highly recommended. For the Sangeet night, dress in your best Indo-Western or glittering ethnic outfits!
                 </p>
                 <p style={{ fontStyle: 'italic', fontSize: '0.85rem', color: 'var(--text-gold)', fontWeight: '600' }}>
-                  Color Ideas: Deep maroon, mustard yellow, royal blue, emerald green, and classic cream.
+                  Color Ideas: Mustard yellow, turmeric gold (Haldi); Royal blue, magenta, emerald, black, or gold (Sangeet).
                 </p>
               </div>
             </div>
@@ -126,31 +112,32 @@ export default function Wedding() {
               </div>
               <div className="schedule-list">
                 <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
-                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>09:00 AM</span>
-                  <div className="schedule-info">
-                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Welcoming the Groom (Baraat)</h4>
-                  </div>
-                </div>
-                <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
                   <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>10:00 AM</span>
                   <div className="schedule-info">
-                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Ceremony & Muhurtham</h4>
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Haldi Ceremonial rituals</h4>
                   </div>
                 </div>
                 <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
                   <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>12:30 PM</span>
                   <div className="schedule-info">
-                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Traditional Feast (Elai Oon)</h4>
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Traditional South Indian Lunch</h4>
+                  </div>
+                </div>
+                <div className="schedule-item" style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>06:00 PM</span>
+                  <div className="schedule-info">
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Sangeet Stage Performances & DJ</h4>
                   </div>
                 </div>
                 <div className="schedule-item" style={{ display: 'flex', gap: '16px' }}>
-                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>06:30 PM</span>
+                  <span className="schedule-time" style={{ fontWeight: '600', color: 'var(--text-accent)', minWidth: '70px' }}>08:00 PM</span>
                   <div className="schedule-info">
-                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Reception & Celebration</h4>
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '600' }}>Dinner is served</h4>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
