@@ -1699,3 +1699,46 @@ p {
     right: 16px;
   }
 }
+
+/* Bride and Groom POV Toggle Styles */
+.pov-toggle-container {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 6px;
+  border-radius: 30px;
+  margin: 24px auto;
+  border: 1px solid var(--border-color);
+  justify-content: center;
+  align-items: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pov-toggle-container {
+    background: rgba(26, 35, 26, 0.4);
+  }
+}
+
+.pov-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.5px;
+}
+
+.pov-btn.active {
+  background: hsl(var(--sage-accent));
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.pov-btn:not(.active):hover {
+  color: var(--text-primary);
+}

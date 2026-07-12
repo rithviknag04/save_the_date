@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Heart, Sparkles, MapPin, Smile } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -35,14 +35,31 @@ const storyMilestones = [
 
 export default function Story() {
   const { t } = useLanguage();
+  const [activePov, setActivePov] = useState('bride'); // 'bride' or 'groom'
 
   return (
     <div className="story-page animate-fade-in">
-      <section className="section story-hero">
+      <section className="section story-hero" style={{ paddingBottom: '10px' }}>
         <div className="container text-center">
           <h1 className="page-title">{t('story.title', 'Our Story')}</h1>
           <p className="page-subtitle">{t('story.subtitle', 'The beautiful journey that led us to this moment')}</p>
-          <div className="botanical-divider">
+          
+          <div className="pov-toggle-container">
+            <button
+              onClick={() => setActivePov('bride')}
+              className={`pov-btn ${activePov === 'bride' ? 'active' : ''}`}
+            >
+              {t('story.btn.bridePov', "Bride's POV")}
+            </button>
+            <button
+              onClick={() => setActivePov('groom')}
+              className={`pov-btn ${activePov === 'groom' ? 'active' : ''}`}
+            >
+              {t('story.btn.groomPov', "Groom's POV")}
+            </button>
+          </div>
+
+          <div className="botanical-divider" style={{ marginTop: '8px' }}>
             <div className="botanical-line"></div>
             <div className="botanical-icon">
               <Heart size={16} fill="currentColor" />
@@ -64,10 +81,10 @@ export default function Story() {
                 </div>
                 
                 <div className="timeline-card-wrapper">
-                  <div className="timeline-card glass-panel">
+                  <div className="timeline-card glass-panel" style={{ transition: 'all 0.3s ease' }}>
                     <span className="timeline-date">{t(`story.milestone.${milestone.key}.date`, milestone.date)}</span>
                     <h3 className="timeline-title">{t(`story.milestone.${milestone.key}.title`, milestone.title)}</h3>
-                    <p className="timeline-desc">{t(`story.milestone.${milestone.key}.desc`, milestone.description)}</p>
+                    <p className="timeline-desc">{t(`story.milestone.${milestone.key}.desc.${activePov}`, milestone.description)}</p>
                   </div>
                 </div>
               </div>
