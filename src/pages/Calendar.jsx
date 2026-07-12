@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Calendar as CalendarIcon, Clock, MapPin, Plus, X, ChevronLeft, ChevronRight, Heart } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const SYSTEM_EVENTS = [
   {
@@ -36,11 +37,11 @@ const SYSTEM_EVENTS = [
     type: 'wedding-main'
   },
   {
-    date: '2026-09-20',
+    date: '2026-08-23',
     title: 'Engagement Ceremony',
-    time: '10:30 AM onwards',
-    location: 'Atmosphere, Mysuru',
-    desc: 'Ring exchange ceremony followed by lunch and celebrations. Click to view details.',
+    time: '4:30 PM onwards',
+    location: 'The Emerald Ballroom, Atmosphere, Mysuru',
+    desc: 'Ring exchange ceremony followed by dinner and celebrations. Click to view details.',
     type: 'engagement'
   }
 ];
@@ -49,6 +50,7 @@ const LOCAL_STORAGE_KEY = 'wedding_custom_events';
 
 export default function Calendar() {
   const navigate = useNavigate();
+  const { language, t } = useLanguage();
   
   // Set default calendar view to December 2026
   const [currentDate, setCurrentDate] = useState(new Date(2026, 11, 1));
@@ -121,7 +123,45 @@ export default function Calendar() {
   };
 
   const getEventsForDate = (dateStr) => {
-    const system = SYSTEM_EVENTS.filter(e => e.date === dateStr);
+    const system = SYSTEM_EVENTS.filter(e => e.date === dateStr).map(evt => {
+      if (evt.date === '2026-12-11') {
+        return {
+          ...evt,
+          title: t('wedding.event.dec11', 'Mehendi Ceremony'),
+          desc: t('wedding.event.dec11.desc', '6:00 PM onwards — Henna, music, and celebrations.')
+        };
+      }
+      if (evt.date === '2026-12-12') {
+        return {
+          ...evt,
+          title: t('wedding.event.dec12', 'Haldi & Sangeet Night'),
+          desc: t('wedding.event.dec12.desc', '10:00 AM (Haldi) & 6:00 PM (Sangeet dance performances).')
+        };
+      }
+      if (evt.date === '2026-12-13') {
+        return {
+          ...evt,
+          title: t('wedding.event.dec13', 'Wedding & Reception'),
+          desc: t('wedding.event.dec13.desc', 'Sacred Muhurtham rituals followed by reception dinner.')
+        };
+      }
+      if (evt.date === '2026-12-14') {
+        return {
+          ...evt,
+          title: t('wedding.event.dec14', 'Blessings & Reception Lunch'),
+          desc: t('wedding.event.dec14.desc', 'Gala lunch gathering to bless the newlywed couple.')
+        };
+      }
+      if (evt.date === '2026-08-23' || evt.date === '2026-09-20') {
+        return {
+          ...evt,
+          title: t('engagement.title', 'The Engagement Ceremony'),
+          desc: t('engagement.event.ring.desc', 'The couple will exchange rings in the presence of family and friends.')
+        };
+      }
+      return evt;
+    });
+    
     const custom = customEvents.filter(e => e.date === dateStr);
     return [...system, ...custom];
   };
@@ -215,7 +255,7 @@ export default function Calendar() {
   const selectedDateEvents = getEventsForDate(selectedDateStr);
 
   const formatModalHeaderDate = (date) => {
-    return date.toLocaleDateString('en-US', {
+    return date.toLocaleDateString(language === 'kn' ? 'kn-IN' : 'en-US', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
@@ -223,13 +263,24 @@ export default function Calendar() {
     });
   };
 
+  const formatMonthTitle = (year, monthIndex) => {
+    if (language === 'kn') {
+      const kannadaMonths = [
+        'ಜನವರಿ', 'ಫೆಬ್ರವರಿ', 'ಮಾರ್ಚ್', 'ಏಪ್ರಿಲ್', 'ಮೇ', 'ಜೂನ್',
+        'ಜುಲೈ', 'ಆಗಸ್ಟ್', 'ಸೆಪ್ಟೆಂಬರ್', 'ಅಕ್ಟೋಬರ್', 'ನವೆಂಬರ್', 'ಡಿಸೆಂಬರ್'
+      ];
+      return `${kannadaMonths[monthIndex]} ${year}`;
+    }
+    return `${monthsList[monthIndex]} ${year}`;
+  };
+
   return (
     <div className="calendar-page animate-fade-in">
       <section className="section page-header-section" style={{ paddingBottom: '20px' }}>
         <div className="container text-center">
-          <h1 className="page-title" style={{ fontSize: '3rem', marginBottom: '8px' }}>Wedding Calendar</h1>
+          <h1 className="page-title" style={{ fontSize: '3rem', marginBottom: '8px' }}>{t('calendar.title', 'Wedding Calendar')}</h1>
           <p className="page-subtitle" style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>
-            Click on highlighted dates to view event details or add your own custom schedule.
+            {t('calendar.subtitle', 'Click on highlighted dates to view event details or add your own custom schedule.')}
           </p>
           <div className="botanical-divider">
             <div className="botanical-line"></div>
@@ -248,26 +299,26 @@ export default function Calendar() {
           <div className="calendar-card glass-panel">
             <div className="calendar-header-nav">
               <h3 className="calendar-month-title">
-                {monthsList[month]} {year}
+                {formatMonthTitle(year, month)}
               </h3>
               <div className="calendar-nav-buttons">
-                <button className="calendar-btn" onClick={handlePrevMonth} title="Previous Month">
+                <button className="calendar-btn" onClick={handlePrevMonth} title={language === 'en' ? 'Previous Month' : 'ಹಿಂದಿನ ತಿಂಗಳು'}>
                   <ChevronLeft size={20} />
                 </button>
-                <button className="calendar-btn" onClick={handleNextMonth} title="Next Month">
+                <button className="calendar-btn" onClick={handleNextMonth} title={language === 'en' ? 'Next Month' : 'ಮುಂದಿನ ತಿಂಗಳು'}>
                   <ChevronRight size={20} />
                 </button>
               </div>
             </div>
 
             <div className="calendar-weekdays-grid">
-              <div className="calendar-weekday">Su</div>
-              <div className="calendar-weekday">Mo</div>
-              <div className="calendar-weekday">Tu</div>
-              <div className="calendar-weekday">We</div>
-              <div className="calendar-weekday">Th</div>
-              <div className="calendar-weekday">Fr</div>
-              <div className="calendar-weekday">Sa</div>
+              <div className="calendar-weekday">{language === 'kn' ? 'ಭಾನು' : 'Su'}</div>
+              <div className="calendar-weekday">{language === 'kn' ? 'ಸೋಮ' : 'Mo'}</div>
+              <div className="calendar-weekday">{language === 'kn' ? 'ಮಂಗಳ' : 'Tu'}</div>
+              <div className="calendar-weekday">{language === 'kn' ? 'ಬುಧ' : 'We'}</div>
+              <div className="calendar-weekday">{language === 'kn' ? 'ಗುರು' : 'Th'}</div>
+              <div className="calendar-weekday">{language === 'kn' ? 'ಶುಕ್ರ' : 'Fr'}</div>
+              <div className="calendar-weekday">{language === 'kn' ? 'ಶನಿ' : 'Sa'}</div>
             </div>
 
             <div className="calendar-days-grid">
@@ -310,7 +361,7 @@ export default function Calendar() {
             </button>
             
             <div style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '14px', marginBottom: '20px' }}>
-              <span className="hero-eyebrow" style={{ display: 'block', marginBottom: '4px' }}>Date Details</span>
+              <span className="hero-eyebrow" style={{ display: 'block', marginBottom: '4px' }}>{t('calendar.card.header', 'Date Details')}</span>
               <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', margin: 0, color: 'var(--text-accent)' }}>
                 {formatModalHeaderDate(selectedDate)}
               </h3>
@@ -355,7 +406,7 @@ export default function Calendar() {
                         }}
                         style={{ padding: '6px 12px', fontSize: '0.75rem', width: '100%', textTransform: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '4px' }}
                       >
-                        View Full Details Page
+                        {t('calendar.btn.viewDetails', 'View Full Details Page')}
                       </button>
                     )}
                   </div>
@@ -363,7 +414,7 @@ export default function Calendar() {
               ) : (
                 <div style={{ textAlign: 'center', padding: '30px 0', color: 'var(--text-secondary)' }}>
                   <CalendarIcon size={32} style={{ opacity: 0.3, marginBottom: '8px' }} />
-                  <p style={{ margin: 0, fontSize: '0.9rem' }}>No events scheduled for this date.</p>
+                  <p style={{ margin: 0, fontSize: '0.9rem' }}>{t('calendar.card.noEvents', 'No events scheduled for this date.')}</p>
                 </div>
               )}
             </div>
@@ -376,18 +427,18 @@ export default function Calendar() {
                 style={{ width: '100%', display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: '8px', padding: '12px 24px' }}
               >
                 <Plus size={16} />
-                Add Event
+                {t('calendar.btn.addEvent', 'Add Event')}
               </button>
             ) : (
               <div className="glass-card" style={{ padding: '16px', borderRadius: '12px', border: '1px dashed var(--border-color)' }}>
-                <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.1rem', marginBottom: '12px', color: 'var(--text-primary)' }}>Add Personal Schedule</h4>
+                <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.1rem', marginBottom: '12px', color: 'var(--text-primary)' }}>{t('calendar.modal.addTitle', 'Add Custom Event')}</h4>
                 <form onSubmit={handleAddEventSubmit}>
                   <div className="form-group" style={{ marginBottom: '12px' }}>
-                    <label className="form-label">Event Name *</label>
+                    <label className="form-label">{t('calendar.modal.labelName', 'Event Name *')}</label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Hotel Check-in, Family Dinner"
+                      placeholder={t('calendar.modal.namePlaceholder', 'e.g. Hotel Check-in, Family Dinner')}
                       className="form-input"
                       value={eventTitle}
                       onChange={(e) => setEventTitle(e.target.value)}
@@ -396,10 +447,10 @@ export default function Calendar() {
 
                   <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', width: '100%' }}>
                     <div className="form-group" style={{ marginBottom: 0, flex: 1, minWidth: 0 }}>
-                      <label className="form-label">Time</label>
+                      <label className="form-label">{t('calendar.modal.labelTime', 'Time')}</label>
                       <input
                         type="text"
-                        placeholder="e.g. 1:00 PM"
+                        placeholder={t('calendar.modal.timePlaceholder', 'e.g. 1:00 PM')}
                         className="form-input"
                         style={{ width: '100%' }}
                         value={eventTime}
@@ -407,10 +458,10 @@ export default function Calendar() {
                       />
                     </div>
                     <div className="form-group" style={{ marginBottom: 0, flex: 1, minWidth: 0 }}>
-                      <label className="form-label">Location</label>
+                      <label className="form-label">{t('calendar.modal.labelLoc', 'Location')}</label>
                       <input
                         type="text"
-                        placeholder="e.g. Hotel Lobby"
+                        placeholder={t('calendar.modal.locPlaceholder', 'e.g. Hotel Lobby')}
                         className="form-input"
                         style={{ width: '100%' }}
                         value={eventLocation}
@@ -420,9 +471,9 @@ export default function Calendar() {
                   </div>
 
                   <div className="form-group" style={{ marginBottom: '16px' }}>
-                    <label className="form-label">Notes</label>
+                    <label className="form-label">{t('calendar.modal.labelNotes', 'Notes')}</label>
                     <textarea
-                      placeholder="Add reminders or flight/room details..."
+                      placeholder={t('calendar.modal.notesPlaceholder', 'Add reminders or flight/room details...')}
                       className="form-textarea"
                       rows="2"
                       value={eventDesc}
@@ -432,10 +483,10 @@ export default function Calendar() {
 
                   <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end' }}>
                     <button type="button" className="btn-secondary" onClick={() => setShowAddForm(false)} style={{ padding: '6px 12px', fontSize: '0.8rem' }}>
-                      Cancel
+                      {t('calendar.btn.cancel', 'Cancel')}
                     </button>
                     <button type="submit" className="btn-primary" style={{ padding: '6px 12px', fontSize: '0.8rem' }}>
-                      Save
+                      {t('calendar.btn.save', 'Save')}
                     </button>
                   </div>
                 </form>

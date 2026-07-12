@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Countdown({ targetDate }) {
+  const { t } = useLanguage();
+  
   // Parse the target date only once
   const parsedTargetDate = useMemo(() => {
     if (targetDate instanceof Date) return targetDate;
@@ -97,22 +100,22 @@ export default function Countdown({ targetDate }) {
       <div className="countdown-grid">
         <div className="countdown-card glass-card">
           <span className="countdown-number">{pad(timeLeft.days)}</span>
-          <span className="countdown-label">Days</span>
+          <span className="countdown-label">{t('countdown.days', 'Days')}</span>
         </div>
 
         <div className="countdown-card glass-card">
           <span className="countdown-number">{pad(timeLeft.hours)}</span>
-          <span className="countdown-label">Hours</span>
+          <span className="countdown-label">{t('countdown.hours', 'Hours')}</span>
         </div>
 
         <div className="countdown-card glass-card">
           <span className="countdown-number">{pad(timeLeft.minutes)}</span>
-          <span className="countdown-label">Mins</span>
+          <span className="countdown-label">{t('countdown.minutes', 'Mins')}</span>
         </div>
 
         <div className="countdown-card glass-card">
           <span className="countdown-number">{pad(timeLeft.seconds)}</span>
-          <span className="countdown-label">Secs</span>
+          <span className="countdown-label">{t('countdown.seconds', 'Secs')}</span>
         </div>
       </div>
     </div>

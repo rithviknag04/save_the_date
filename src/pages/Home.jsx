@@ -1,16 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import coupleHero from '../assets/couple_hero.png';
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <div className="home-page animate-fade-in-scale">
       <section className="hero-section">
         <div className="container hero-container">
           <div className="hero-card glass-panel">
-            <span className="hero-eyebrow">Welcome to the Wedding Plan of</span>
-            <h1 className="hero-title">Prajwala Nag & Shravan Kumar</h1>
+            <span className="hero-eyebrow">{t('home.welcome', 'Welcome to the Wedding Plan of')}</span>
+            <h1 className="hero-title">{t('home.couple', 'Prajwala Nag & Shravan Kumar')}</h1>
             
             <div className="botanical-divider">
               <div className="botanical-line"></div>
@@ -21,16 +24,15 @@ export default function Home() {
             </div>
             
             <p className="hero-intro-text" style={{ margin: '24px 0', fontSize: '1.1rem', color: 'var(--text-secondary)' }}>
-              We are so excited to celebrate our love and begin this new chapter together. 
-              Please select a ceremony below to explore details, locations, and countdowns.
+              {t('home.intro', 'We are so excited to celebrate our love and begin this new chapter together. Please select a ceremony below to explore details, locations, and countdowns.')}
             </p>
             
             <div className="hero-actions">
               <Link to="/engagement" className="btn-primary">
-                Engagement
+                {t('home.btn.engagement', 'Engagement')}
               </Link>
               <Link to="/wedding" className="btn-secondary">
-                Wedding
+                {t('home.btn.wedding', 'Wedding')}
               </Link>
             </div>
           </div>

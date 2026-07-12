@@ -1663,3 +1663,39 @@ p {
     height: 38px;
   }
 }
+
+/* Language Toggle Button Styles */
+.lang-toggle-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+  .lang-toggle-btn {
+    background: rgba(26, 35, 26, 0.4);
+  }
+}
+
+.lang-toggle-btn:hover {
+  background: hsl(var(--sage-accent));
+  color: #ffffff;
+  border-color: hsl(var(--sage-accent));
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .lang-toggle-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+  }
+}
